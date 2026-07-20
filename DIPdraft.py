@@ -54,3 +54,5 @@ for frame_count in range(0, int(total_num_frames)):
     # out.write(frame)    # save processed frame into the new video
     
 cv2.destroyAllWindows()
+
+print("hi")
