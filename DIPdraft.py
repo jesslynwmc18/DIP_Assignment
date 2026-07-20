@@ -56,3 +56,4 @@ for frame_count in range(0, int(total_num_frames)):
 cv2.destroyAllWindows()
 
 print("hi")
+print("bye")
