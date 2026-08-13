@@ -5,7 +5,7 @@ from pathlib import Path
 from column_sorting import detect_columns, sort_reading_order, vertical_projection
 from paragraph_detection import detect_paragraphs_in_column, horizontal_projection
 from preprocessing import load_image, otsu_threshold
-from utils import prepare_output_directory, save_paragraphs
+from utils import prepare_output_directory, save_paragraphs, boxed_paragraph
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -25,15 +25,20 @@ def process_paper(image_path, output_root=DEFAULT_OUTPUT_DIR):
     # plot_projections(horizontal_projection(binary), vertical_projection(binary))
 
     columns = detect_columns(binary)
-    print(f"len: {len(columns)}")
     boxes = []
     for column in columns:        
         boxes.extend(detect_paragraphs_in_column(binary, column))
         
     boxes = sort_reading_order(boxes)
+    
+    # ========================================
+    # VISUALISATION (Paragraph Bounding Boxes)
+    # ========================================
+    boxed_paragraph(colour, boxes)
 
     output_dir = prepare_output_directory(output_root, image_path.stem)
     saved_files = save_paragraphs(colour, boxes, output_dir)
+    
         
     return {
         "image": image_path,

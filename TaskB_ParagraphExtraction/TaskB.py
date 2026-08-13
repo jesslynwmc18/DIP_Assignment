@@ -142,4 +142,16 @@ array2 = np.array([1,2,0,4,0,3])
 
 r = np.flatnonzero(array2[2:])
 print(r)
+
+x1, y1, x2, y2 = 120, 179, 1534, 586
+
+cv2.rectangle(
+    img1,              # image to draw on
+    (x1, y1),           # top-left corner
+    (x2, y2),           # bottom-right corner
+    (0, 0, 255),       # colour (BGR) → red
+    2                   # thickness
+)
+
+cv2.imshow("Detected", img1)
       

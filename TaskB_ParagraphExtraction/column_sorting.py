@@ -24,7 +24,6 @@ def detect_columns(binary_image, maximum_columns=3, padding=30):
     """Detect one, two or three text columns from wide vertical gutters."""
     height, width = binary_image.shape
     projection = vertical_projection(binary_image)
-    print(binary_image.shape)
     
     # ===================================
     # VISUALISATION (Vertical Projection)

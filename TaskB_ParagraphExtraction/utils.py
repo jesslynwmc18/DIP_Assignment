@@ -35,3 +35,43 @@ def plot_projections(horizontal, vertical):
     axes[1].set_title("Vertical black-pixel projection")
     figure.tight_layout()
     pt.show()
+
+def boxed_paragraph(colour_image, boxes):
+    colour_image = cv2.cvtColor(colour_image, cv2.COLOR_BGR2RGB)
+    
+    iteration = 1
+    for number, (x1, y1, x2, y2) in enumerate(boxes, start=1):
+        cv2.rectangle(
+            colour_image,       # image to draw on
+            (x1, y1),           # top-left corner
+            (x2, y2),           # bottom-right corner
+            (0, 0, 255),        # colour (RGB) -> blue
+            2                   # thickness
+        )
+        # only displays fully boxed page, not process of each paragraph boxed up
+        if iteration == len(boxes): 
+            pt.figure()
+            pt.imshow(colour_image)
+            pt.show()
+        iteration += 1
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
