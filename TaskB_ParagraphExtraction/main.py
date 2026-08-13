@@ -34,7 +34,7 @@ def process_paper(image_path, output_root=DEFAULT_OUTPUT_DIR):
     # ========================================
     # VISUALISATION (Paragraph Bounding Boxes)
     # ========================================
-    boxed_paragraph(colour, boxes)
+    # boxed_paragraph(colour, boxes)
 
     output_dir = prepare_output_directory(output_root, image_path.stem)
     saved_files = save_paragraphs(colour, boxes, output_dir)
