@@ -124,4 +124,22 @@ myRanges = getRangeZeros(myZeros)
 doTop(myRanges) # start of paragraph
 doBottom(myRanges)    # end of paragraph
 paragraphRanges = list(zip(top, bottom))    # put start and end together
-extractParagraphs(paragraphRanges, binImg1)         
+extractParagraphs(paragraphRanges, binImg1)   
+
+# ============
+
+abc = [(0,141), (777,875), (1514,1654)]
+abc = sorted(abc, key=lambda item: item[1] - item[0], reverse=True) # get width of gutters, sort by largest
+abc = sorted(abc[: 3 - 1]) # take 2 gutters
+
+array = np.array([
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+])
+
+array2 = np.array([1,2,0,4,0,3])
+
+r = np.flatnonzero(array2[2:])
+print(r)
+      

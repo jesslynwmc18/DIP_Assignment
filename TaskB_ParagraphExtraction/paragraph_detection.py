@@ -1,7 +1,7 @@
 """Paragraph detection using horizontal black-pixel projection."""
 
 import numpy as np
-
+# from matplotlib import pyplot as pt # VISUALISATION
 
 def consecutive_false_runs(mask):
     """Return (start, end) pairs for consecutive False values.
@@ -12,12 +12,12 @@ def consecutive_false_runs(mask):
     runs = []
     start = None
     for index, value in enumerate(mask):
-        if not value and start is None:
+        if not value and start is None: # if its BLANK and BEGINNING (= beginning of zero runs)
             start = index
-        elif value and start is not None:
+        elif value and start is not None: # if its FILLED and has START (= end of zero runs)
             runs.append((start, index))
             start = None
-    if start is not None:
+    if start is not None: # to append the final blank of the end page
         runs.append((start, len(mask)))
     return runs
 
@@ -74,6 +74,17 @@ def detect_paragraphs_in_column(
     x1, x2 = column
     region = binary_image[:, x1:x2]
     projection = horizontal_projection(region)
+    
+    # =====================================
+    # VISUALISATION (Horizontal Projection)
+    # =====================================
+    # pt.figure()
+    # pt.plot(projection)
+    # pt.title("Horizontal Projection")
+    # pt.xlabel("Row")
+    # pt.ylabel("Number of Black Pixels")
+    # pt.show()
+    
     active_rows = projection > 0
 
     page_scale = binary_image.shape[0] / 2339.0
@@ -83,15 +94,15 @@ def detect_paragraphs_in_column(
         for start, end in consecutive_false_runs(active_rows)
         if end - start >= gap
     ]
-
+    
     # Long blank bands divide the column into candidate content blocks.
     boundaries = [0]
     boundaries.extend((start + end) // 2 for start, end in blank_runs)
     boundaries.append(binary_image.shape[0])
-
+    
     boxes = []
     for top_limit, bottom_limit in zip(boundaries, boundaries[1:]):
-        rows = np.flatnonzero(active_rows[top_limit:bottom_limit])
+        rows = np.flatnonzero(active_rows[top_limit:bottom_limit]) # index of area with content in the selected topand bottom limit
         if rows.size == 0:
             continue
         content_top = top_limit + int(rows[0])

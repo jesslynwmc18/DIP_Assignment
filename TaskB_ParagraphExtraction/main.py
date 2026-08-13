@@ -20,13 +20,19 @@ def process_paper(image_path, output_root=DEFAULT_OUTPUT_DIR):
     binary = otsu_threshold(gray)
 
     columns = detect_columns(binary)
+    print(f"len: {len(columns)}")
     boxes = []
-    for column in columns:
+    for column in columns:        
         boxes.extend(detect_paragraphs_in_column(binary, column))
+        
     boxes = sort_reading_order(boxes)
 
     output_dir = prepare_output_directory(output_root, image_path.stem)
     saved_files = save_paragraphs(colour, boxes, output_dir)
+    
+    # visualisation 
+    # plot_projections(horizontal_projection(binary), vertical_projection(binary))
+    
     return {
         "image": image_path,
         "columns": columns,
@@ -43,7 +49,7 @@ def main():
         print(
             f"{image_path.name}: {len(result['columns'])} column(s), "
             f"{len(result['saved_files'])} paragraph(s) saved to "
-            f"{result['saved_files'][0].parent if result['saved_files'] else DEFAULT_OUTPUT_DIR}"
+            f"{result['saved_files'][0].parent if result['saved_files'] else DEFAULT_OUTPUT_DIR}\n"
         )
 
 

@@ -1,14 +1,22 @@
 """Image loading and Otsu preprocessing for Task B."""
 
-from pathlib import Path
+# from pathlib import Path
 
 import cv2
 
 
+# def load_image(image_path):
+#     """Load both the colour image (for saving) and a grayscale copy."""
+#     image_path = Path(image_path)
+#     colour = cv2.imread(str(image_path), cv2.IMREAD_COLOR)
+#     if colour is None:
+#         raise FileNotFoundError(f"Could not read image: {image_path}")
+#     gray = cv2.cvtColor(colour, cv2.COLOR_BGR2GRAY)
+#     return colour, gray
+
 def load_image(image_path):
     """Load both the colour image (for saving) and a grayscale copy."""
-    image_path = Path(image_path)
-    colour = cv2.imread(str(image_path), cv2.IMREAD_COLOR)
+    colour = cv2.imread(image_path, cv2.IMREAD_COLOR)
     if colour is None:
         raise FileNotFoundError(f"Could not read image: {image_path}")
     gray = cv2.cvtColor(colour, cv2.COLOR_BGR2GRAY)
