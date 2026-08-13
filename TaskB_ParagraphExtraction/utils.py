@@ -48,7 +48,8 @@ def boxed_paragraph(colour_image, boxes):
             (0, 0, 255),        # colour (RGB) -> blue
             2                   # thickness
         )
-        # only displays fully boxed page, not process of each paragraph boxed up
+        # only displays fully boxed page, 
+        # not process of each paragraph boxed up
         if iteration == len(boxes): 
             pt.figure()
             pt.imshow(colour_image)
