@@ -2,8 +2,8 @@
 
 from pathlib import Path
 
-from column_sorting import detect_columns, sort_reading_order
-from paragraph_detection import detect_paragraphs_in_column
+from column_sorting import detect_columns, sort_reading_order, vertical_projection
+from paragraph_detection import detect_paragraphs_in_column, horizontal_projection
 from preprocessing import load_image, otsu_threshold
 from utils import prepare_output_directory, save_paragraphs
 
@@ -18,6 +18,11 @@ def process_paper(image_path, output_root=DEFAULT_OUTPUT_DIR):
     image_path = Path(image_path)
     colour, gray = load_image(image_path)
     binary = otsu_threshold(gray)
+    
+    # ==============================================================================
+    # VISUALISATION (Projections - Full Page without column/paragraph separation)
+    # ==============================================================================
+    # plot_projections(horizontal_projection(binary), vertical_projection(binary))
 
     columns = detect_columns(binary)
     print(f"len: {len(columns)}")
@@ -29,10 +34,7 @@ def process_paper(image_path, output_root=DEFAULT_OUTPUT_DIR):
 
     output_dir = prepare_output_directory(output_root, image_path.stem)
     saved_files = save_paragraphs(colour, boxes, output_dir)
-    
-    # visualisation 
-    # plot_projections(horizontal_projection(binary), vertical_projection(binary))
-    
+        
     return {
         "image": image_path,
         "columns": columns,
