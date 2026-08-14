@@ -6,7 +6,6 @@ import numpy as np
 def consecutive_false_runs(mask):
     """Return (start, end) pairs for consecutive False values.
 
-    This is the reusable equivalent of Jesslyn's getConsecutiveZeros().
     End positions use normal Python exclusive indexing.
     """
     runs = []
