@@ -31,6 +31,8 @@ def detect_columns(binary_image, maximum_columns=3, padding=30):
     # pt.figure()
     # pt.plot(projection)
     # pt.title("Vertical Projection")
+    # pt.xlabel("Column")
+    # pt.ylabel("Number of Black Pixels")
     # pt.show()
 
     # A gutter can contain a few table-rule pixels, so it need not be exactly 0.
