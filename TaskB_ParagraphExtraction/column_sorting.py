@@ -6,7 +6,7 @@ from paragraph_detection import consecutive_false_runs
 # from matplotlib import pyplot as pt # VISUALISATION
 
 def vertical_projection(binary_image):
-    """Count black pixels in each column, matching Jesslyn's prototype."""
+    """Count black pixels in each column"""
     return np.sum(binary_image == 0, axis=0)
 
 
