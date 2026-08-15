@@ -8,3 +8,8 @@ __pycache__/
 # Output folder
 output/*
 !output/.gitkeep
+
+# Local OS and standalone Task A test artifacts
+.DS_Store
+TaskA_VideoProcessing/member1_output.mp4
+TaskA_VideoProcessing/overlay_test.avi
