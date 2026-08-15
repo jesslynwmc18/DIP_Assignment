@@ -5,9 +5,9 @@ from brightness import detect_day_night, adjust_brightness
 from face_blur import load_face_detector, blur_faces
 
 
-INPUT_VIDEO = "input/videos/street.mp4"
+INPUT_VIDEO = "../input/videos/street.mp4"
 OUTPUT_VIDEO = "member1_output.mp4"
-CASCADE_FILE = "models/face_detector.xml"
+CASCADE_FILE = "../models/face_detector.xml"
 
 
 def main():
