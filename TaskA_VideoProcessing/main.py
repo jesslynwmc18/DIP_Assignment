@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import cv2
 
-from member1_brightness import detect_day_night, adjust_brightness
-from member1_faceblur import load_face_detector, blur_faces
+from brightness import detect_day_night, adjust_brightness
+from faceblur import load_face_detector, blur_faces
 
 
 INPUT_VIDEO = "street.mp4"
