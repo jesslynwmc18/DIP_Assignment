@@ -99,7 +99,7 @@ The Haar Cascade face detector used for face detection is located in:
 
 From the project root:
 
-`python Task_A_Video_Processing/main.py`
+**`python Task_A_Video_Processing/pipeline.py`**
 
 Input videos and supporting media are loaded from the `input/` directory. Processed videos are saved to the `output/` directory.
 
@@ -120,7 +120,7 @@ Running Task B
 
 From the project root:
 
-`python Task_B_Paragraph_Extraction/main.py`
+**`python Task_B_Paragraph_Extraction/main.py`**
 
 The program automatically processes the paper images stored in:
 
