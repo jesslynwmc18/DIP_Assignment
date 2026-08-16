@@ -5,6 +5,9 @@ __pycache__/
 # Spyder
 .spyproject/
 
+# JetBrains IDE project settings
+.idea/
+
 # Output folder
 output/*
 !output/.gitkeep
