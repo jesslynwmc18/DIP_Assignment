@@ -496,7 +496,7 @@ def main(arguments: Optional[Sequence[str]] = None) -> int:
         face_cascade = load_face_detector(str(FACE_CASCADE_PATH))
         member2 = _load_member2_functions(options.member2_module)
         watermarks = _load_watermarks()
-        print(f"Member 2 integration enabled: {member2.module_name}")
+        print("Talking overlay and watermark processing enabled.")
     except (AttributeError, ImportError, ValueError) as error:
         parser.error(str(error))
 
