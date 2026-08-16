@@ -23,15 +23,14 @@ DIP_Assignment/
 ├── README.md
 ├── .gitignore
 │
-├── Task_A_Video_Processing/
+├── TaskA_VideoProcessing/
 │   ├── main.py
 │   ├── brightness.py
 │   ├── face_blur.py
-│   ├── overlay.py
-│   ├── watermark.py
-│   └── utils.py
+│   ├── overlay_watermark.py
+│   └── pipeline.py
 │
-├── Task_B_Paragraph_Extraction/
+├── TaskB_ParagraphExtraction/
 │   ├── main.py
 │   ├── preprocessing.py
 │   ├── paragraph_detection.py
@@ -42,31 +41,44 @@ DIP_Assignment/
 │   └── face_detector.xml
 │
 ├── input/
-│   ├── videos/
-│   │   ├── street.mp4
-│   │   ├── talking.mp4
-│   │   ├── endscreen.mp4
-│   │   └── ...
+│   ├── images/
+│   │   ├── watermark1.png
+│   │   ├── watermark2.png
+│   │   └── papers/
+│   │       ├── 001.png
+│   │       ├── 002.png
+│   │       └── ...
 │   │
-│   └── images/
-│       ├── watermark1.png
-│       ├── watermark2.png
-│       └── papers/
-│           ├── 001.png
-│           └── ...
+│   └── videos/
+│       ├── alley.mp4
+│       ├── endscreen.mp4
+│       ├── office.mp4
+│       ├── singapore.mp4
+│       ├── street.mp4
+│       ├── talking.mp4
+│       └── traffic.mp4
 │
 ├── output/
 │   ├── .gitkeep
-│   ├── processed_video.avi
+│   ├── alley_processed.mp4
+│   ├── office_processed.mp4
+│   ├── singapore_processed.mp4
+│   ├── traffic_processed.mp4
+│   │
 │   └── extracted_paragraphs/
-│       └── extracted_001/
-│           └── paragraph_1.png
+│       ├── extracted_001/
+│       │   ├── paragraph_1.png
+│       │   └── ...
+│       ├── extracted_002/
+│       │   └── ...
+│       └── extracted_008/
+│           └── ...
 │
 └── samples/
-    ├── Sample_outputs_from_008/
-    │   ├── paragraph 1.png
-    │   └── ...
-    └── Sample output-part A.avi
+    └── Sample_outputs_from_008/
+        ├── paragraph 1.png
+        ├── paragraph 2.png
+        └── ...
 
 ```
 
